@@ -1,0 +1,12 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2022",                  /* Versión moderna de JavaScript para compatibilidad. */
+    "module": "NodeNext",                 /* Genera código compatible con ES Modules en Node.js. */
+    "moduleResolution": "NodeNext",       /* Usa la lógica de Node.js para encontrar módulos. */
+    "esModuleInterop": true,              /* Mejora la compatibilidad con CommonJS/ESM. */
+    "outDir": "./dist",
+    // ... otras opciones
+  },
+  "include": ["src/**/*"]
+}
