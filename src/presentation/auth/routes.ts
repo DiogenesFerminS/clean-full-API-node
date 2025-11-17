@@ -4,13 +4,14 @@ import { AuthService } from '../services/auth.service.js';
 import { EmailService } from '../services/email.service.js';
 import { envs } from '../../config/envs.js';
 
-const {MAILER_EMAIL, MAILER_SECRET_KEY, MAILER_SERVICE} = envs;
+const {MAILER_EMAIL, MAILER_SECRET_KEY, MAILER_SERVICE, SEND_EMAIL} = envs;
 
-const emailService = new EmailService(MAILER_SERVICE, MAILER_EMAIL, MAILER_SECRET_KEY);
+const emailService = new EmailService(MAILER_SERVICE, MAILER_EMAIL, MAILER_SECRET_KEY, SEND_EMAIL);
 
 const authService = new AuthService(emailService);
 
 const controller = new AuthController(authService);
+
 export class AuthRoutes {
 
 

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { AuthRoutes } from './auth/routes.js';
+import { CategoryRoutes } from './category/routes.js';
 
 
 
@@ -13,6 +14,7 @@ export class AppRoutes {
     
     // Definir las rutas
     router.use('/api/auth', AuthRoutes.routes);
+    router.use('/api/category', CategoryRoutes.routes)
 
     return router;
   }

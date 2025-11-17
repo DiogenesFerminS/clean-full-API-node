@@ -18,11 +18,11 @@ export class JwtAdapter {
     };
   }
 
-  static validateToken(token: string) {
+  static validateToken<T>(token: string): T | null {
 
     try {
       const decoded = jwt.verify(token, JWT_SECRET);
-      return decoded;
+      return decoded as T;
     } catch (error) {
       return null
     }
