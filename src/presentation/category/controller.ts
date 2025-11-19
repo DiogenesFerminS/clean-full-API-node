@@ -1,8 +1,11 @@
 import { Request, Response } from "express";
-import { CreateCategoryDto, CustomError } from "../../domain/index.js";
+import { CreateCategoryDto, CustomError, PaginationDto } from "../../domain/index.js";
+import { CategoryService } from "../services/category.service.js";
 
 export class CategoryController {
-    constructor() {}
+    constructor(
+        private readonly categoryService: CategoryService,
+    ) {}
 
     private handleError = (error: unknown, res: Response) => {
         if (error instanceof CustomError) {
@@ -20,10 +23,23 @@ export class CategoryController {
             return res.status(400).json({error});
         }
 
-        res.status(200).json(createCategoryDto);
+        this.categoryService.createCategory(createCategoryDto, req.body.user)
+        .then((resp) => res.status(200).json(resp))
+        .catch((err) => this.handleError(err, res));
     }
 
     getCategories = (req: Request, res: Response) => {
-        res.status(200).json('Get Categories');
+
+        const { page = 1, limit = 10 } = req.query;
+
+        const [error, paginationDto] = PaginationDto.create(+page, +limit);
+        if(error){
+            return res.status(400).json(error);
+        }
+
+        this.categoryService.getAllCategories(paginationDto)
+        .then((resp) => res.status(200).json(resp)) 
+        .catch((error) => this.handleError(error, res));
+
     }
 }    
