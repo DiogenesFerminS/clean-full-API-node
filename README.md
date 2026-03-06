@@ -1,16 +1,13 @@
 # Rest Project + TypeScript
 
-Este proyecto previamente inicializado tiene todo lo necesario para trabajar con TypeScript, Express y Rest.
-
-Cada paso de su configuración ya se ha realizado previamente en el curso, por lo que solo es necesario clonar el proyecto y comenzar a trabajar.
-
+This pre-configured project includes everything needed to work with TypeScript, Express, and REST APIs. The entire setup has been previously completed, so you only need to clone the repository and start developing.
 
 ## Instalación
 
-1. Clonar .env.template a .env y configurar las variables de entorno
-2. Ejecutar `npm install` para instalar las dependencias
-3. En caso de necesitar base de datos, configurar el docker-compose.yml y ejecutar `docker-compose up -d` para levantar los servicios deseados.
-4. Ejercutar el seed `npm run seed` (solo en desarrollo)
-5. Ejecutar `npm run dev` para levantar el proyecto en modo desarrollo
+1. Environment Variables: Copy .env.template to .env and configure your environment variables.
+2. Install Dependencies: Run the following command to install the necessary packages: ```npm install``
+3. Database Setup: If a database is required, configure the docker-compose.yml file and run: ```docker compose up -d``
+4. Seed the Database: Run the seed script (development mode only): ```npm run seed``
+5. Start Development Server: Launch the project in development mode: ```npm run dev```
 
 
